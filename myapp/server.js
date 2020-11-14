@@ -1,56 +1,56 @@
 const express = require("express");
 const app = express();
 
-app.get("/add", function (req, response) {
-    const number1 = parseInt(req.query.value1);
-    const number2 = parseInt(req.query.value2);
-    const result = parseInt(number1 + number2);
-    response.send("my numbers" + result);
+app.get("/add",  (req, res) => {
+    const valueOfNumber1 = parseInt(req.query.value1);
+    const valueOfNumber2 = parseInt(req.query.value2);
+    const result = parseInt(valueOfNumber1 + valueOfNumber2);
+    res.send("my numbers" + result);
   });
   
-app.get("/substract", function(req, response){
-   const number1 = parseInt(req.query.number1);
-   const number2 = parseInt(req.query.number2);
-   response.send("my numbers " + (number1 - number2));
+app.get("/substract", (req, res) => {
+   const valueOfNumber1 = parseInt(req.query.valueOfNumber1);
+   const valueOfNumber2 = parseInt(req.query.valueOfNumber2);
+   res.send("my numbers " + (valueOfNumber1 - valueOfNumber2));
 } )
-app.get("/multiply", function (req, response) {
-    const number1 = parseInt(req.query.value1);
-    const number2 = parseInt(req.query.value2);
-    const result = parseInt(number1 * number2);
-    response.send("my numbers " +result);
+app.get("/multiply",  (req, res) => {
+    const valueOfNumber1 = parseInt(req.query.value1);
+    const valueOfNumber2 = parseInt(req.query.value2);
+    const result = parseInt(valueOfNumber1 * valueOfNumber2);
+    res.send("my numbers " +result);
   });
-  app.get("/divide", function (req, response) {
-    const number1 = parseInt(req.query.value1);
-    const number2 = parseInt(req.query.value2);
-    const result = parseFloat(number1 / number2);
-    response.send("my numbers " + result);
-  });
-
-  app.get("/add/:number1/:number2", function (req, response){
-    const number1 = parseInt(req.params.number1);
-    const number2 = parseInt(req.params.number2);
-    const result = parseInt(number1 + number2);
-    response.send("my numbers " + result);
+  app.get("/divide",  (req, res) => {
+    const valueOfNumber1 = parseInt(req.query.value1);
+    const valueOfNumber2 = parseInt(req.query.value2);
+    const result = parseFloat(valueOfNumber1 / valueOfNumber2);
+    res.send("my numbers " + result);
   });
 
-  app.get("/substract/:number1/:number2", function (req, response){
-    const number1 = parseInt(req.params.number1);
-    const number2 = parseInt(req.params.number2);
-    const result = parseInt(number1 - number2);
-    response.send("my numbers " + result);
+  app.get("/add/:valueOfNumber1/:valueOfNumber2",  (req, res) => {
+    const valueOfNumber1 = parseInt(req.params.valueOfNumber1);
+    const valueOfNumber2 = parseInt(req.params.valueOfNumber2);
+    const result = parseInt(valueOfNumber1 + valueOfNumber2);
+    res.send("my numbers " + result);
   });
-  app.get("/multiply/:number1/:number2", function (req, response){
-    const number1 = parseInt(req.params.number1);
-    const number2 = parseInt(req.params.number2);
-    const result = parseInt(number1 * number2);
-    response.send("my numbers " + result);
+
+  app.get("/substract/:valueOfNumber1/:valueOfNumber2",  (req, res) => {
+    const valueOfNumber1 = parseInt(req.params.valueOfNumber1);
+    const valueOfNumber2 = parseInt(req.params.valueOfNumber2);
+    const result = parseInt(valueOfNumber1 - valueOfNumber2);
+    res.send("my numbers " + result);
   });
-  app.get("/divide/:number1/:number2", function (req, response){
-    const number1 = parseInt(req.params.number1);
-    const number2 = parseInt(req.params.number2);
-    const result = parseInt(number1 / number2);
-    response.send("my numbers " + result);
+  app.get("/multiply/:valueOfNumber1/:valueOfNumber2", (req, res) =>{
+    const valueOfNumber1 = parseInt(req.params.valueOfNumber1);
+    const valueOfNumber2 = parseInt(req.params.valueOfNumber2);
+    const result = parseInt(valueOfNumber1 * valueOfNumber2);
+    res.send("my numbers " + result);
   });
-app.listen(3000, function (){
+  app.get("/divide/:valueOfNumber1/:valueOfNumber2", (req, res) => {
+    const valueOfNumber1 = parseInt(req.params.valueOfNumber1);
+    const valueOfNumber2 = parseInt(req.params.valueOfNumber2);
+    const result = parseInt(valueOfNumber1 / valueOfNumber2);
+    res.send("my numbers " + result);
+  });
+app.listen(3000, () => {
     console.log("Server is listening on port 3000. Ready to accept requests!")
 });
